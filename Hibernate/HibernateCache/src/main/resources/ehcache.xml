@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+    <defaultCache maxEntriesLocalHeap="20"
+                  eternal="false"
+                  timeToIdleSeconds="120"
+                  timeToLiveSeconds="200"
+                  memoryStoreEvictionPolicy="LRU"/>
+    <!--LRU - least recently used-->
+    <!--LFU Least Frequently Used    -->
+    <cache name="pojos.Client"
+           maxEntriesLocalHeap="2"
+           eternal="true">
+    </cache>
+
+    <cache name="pojos.CreditCard"
+           maxEntriesLocalHeap="2"
+           eternal="false"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600">
+        <persistence strategy="localTempSwap"/>
+    </cache>
+
+    <cache name="org.hibernate.cache.StandardQueryCache"
+           maxEntriesLocalHeap="100"
+           eternal="false"
+           timeToLiveSeconds="120">
+        <persistence strategy="localTempSwap"/>
+    </cache>
+</ehcache>

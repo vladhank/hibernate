@@ -1,0 +1,27 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="hibernate.hank.vlad" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>pojos.Client</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/HibernateTest?createDatabaseIfNotExist=true"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="7777777Ab"/>
+            <property name="hibernate.dialect.storage_engine" value="innodb"/>
+            <!--validate: validate that the schema matches, make no changes to the schema of the database, you probably want this for production.-->
+            <!--update: update the schema to reflect the entities being persisted-->
+            <!--create: creates the schema necessary for your entities, destroying any previous data.-->
+            <!--create-drop: create the schema as in create above, but also drop the schema at the end of the session. This is great in early development or for testing.-->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.connection.pool_size" value="10"/>
+        </properties>
+    </persistence-unit>
+</persistence>
